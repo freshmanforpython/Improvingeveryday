@@ -53,5 +53,6 @@ class Solution:
 
 ## Learning Section
 [One - pass Algorithm](https://en.wikipedia.org/wiki/One-pass_algorithm)
+精髓：在loop中将有意义的变量存储起来，便不用从头再来
 
 
