@@ -18,7 +18,9 @@ Operations and built-in functions that have a Boolean result always return 0 or 
 
 ### 392. Is Subsequence
 #### My Solution
-'''class Solution:
+
+```
+class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
         sl = list(s)
         tl = list(t)
@@ -28,9 +30,10 @@ Operations and built-in functions that have a Boolean result always return 0 or 
             else:
                 tl = tl[tl.index(sub)+1:]
         return True
-                '''
+ ```
 #### Best Solution
-'''class Solution:
+
+```class Solution:
     def isSubsequence(self, s, target):
         iter_target = iter(target) #生成迭代器
-        return all(char in iter_target for char in s) #all()判断所有S里的都是在T里，返回True'''
+        return all(char in iter_target for char in s) #all()判断所有S里的都是在T里，返回True```
