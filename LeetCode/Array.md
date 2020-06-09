@@ -15,3 +15,22 @@ zero of any numeric type: 0, 0.0, 0j, Decimal(0), Fraction(0, 1)
 empty sequences and collections: '', (), [], {}, set(), range(0)
 
 Operations and built-in functions that have a Boolean result always return 0 or False for false and 1 or True for true, unless otherwise stated. (Important exception: the Boolean operations or and and always return one of their operands.)
+
+### 392. Is Subsequence
+#### My Solution
+'''class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+        sl = list(s)
+        tl = list(t)
+        for sub in sl:
+            if sub not in tl:
+                return False
+            else:
+                tl = tl[tl.index(sub)+1:]
+        return True
+                '''
+#### Best Solution
+'''class Solution:
+    def isSubsequence(self, s, target):
+        iter_target = iter(target) #生成迭代器
+        return all(char in iter_target for char in s) #all()判断所有S里的都是在T里，返回True'''
