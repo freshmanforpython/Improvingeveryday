@@ -37,7 +37,7 @@ class Solution:
     def isSubsequence(self, s, target):
         iter_target = iter(target) #生成迭代器
         return all(char in iter_target for char in s) #all()判断所有S里的都是在T里，返回True
-        ```
+ ```
         
 
 ### Find Numbers with Even Number of Digits
@@ -61,7 +61,8 @@ class Solution:
 
 ```class Solution:
     def findNumbers(self, nums: List[int]) -> int:
-        return sum([int(log10(num)) %2 for num in nums])```
+        return sum([int(log10(num)) %2 for num in nums])
+```
         
 
 
