@@ -36,8 +36,8 @@ class Solution:
 ```class Solution:
     def isSubsequence(self, s, target):
         iter_target = iter(target) #生成迭代器
-        return all(char in iter_target for char in s) #all()判断所有S里的都是在T里，返回True```
-        
+        return all(char in iter_target for char in s) #all()判断所有S里的都是在T里，返回True
+        ```
         
 
 ### Find Numbers with Even Number of Digits
@@ -62,3 +62,42 @@ class Solution:
 ```class Solution:
     def findNumbers(self, nums: List[int]) -> int:
         return sum([int(log10(num)) %2 for num in nums])```
+        
+
+
+### 88. Merge Sorted Array
+
+#### My Solution
+
+```
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        
+       
+        for i in range(n):
+            nums1[m+i] = nums2[i]
+         
+        return nums1.sort()
+ ```
+#### Best Solution
+
+```tot = m+n
+        i1 = m-1
+        i2 = n-1
+        target = tot-1
+        while i2>=0:
+            if i1 >= 0 and nums1[i1] > nums2[i2]:
+                nums1[target] = nums1[i1]
+                i1-=1
+            else:
+                nums1[target] = nums2[i2]
+                i2-=1
+            target-=1
+```
+
+        
+        
+        
