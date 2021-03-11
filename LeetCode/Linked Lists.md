@@ -1,3 +1,9 @@
+## 树 Tree
+![image](https://user-images.githubusercontent.com/27000065/110733377-d1185180-81f3-11eb-9e92-1684b0f6c29f.png)
+![image](https://user-images.githubusercontent.com/27000065/110733428-f1481080-81f3-11eb-9c6a-e0d29831d97a.png)
+左树上的所有节点小于节点，右树上的node都大于节点。查找时间短一半lgn。
+![image](https://user-images.githubusercontent.com/27000065/110733657-526fe400-81f4-11eb-81a6-4d0caae975f8.png)
+
 160. Intersection of Two Linked Lists
 ## Solution 1 Hash Table
 ![image](https://user-images.githubusercontent.com/27000065/110005350-5d9fad00-7ce6-11eb-955f-bb08aabf5f7b.png)
