@@ -1,6 +1,9 @@
 ## 树 Tree
 ![image](https://user-images.githubusercontent.com/27000065/112231837-dc18ac00-8c0d-11eb-823d-56f423c945a0.png)
 ![image](https://user-images.githubusercontent.com/27000065/112231877-f05ca900-8c0d-11eb-9e3a-50b58d515ae9.png)
+![image](https://user-images.githubusercontent.com/27000065/112231938-12eec200-8c0e-11eb-9420-371688e81e8e.png)
+![image](https://user-images.githubusercontent.com/27000065/112232038-492c4180-8c0e-11eb-9a72-616d34187052.png)
+不光是左/右儿子
 ![image](https://user-images.githubusercontent.com/27000065/110733377-d1185180-81f3-11eb-9e92-1684b0f6c29f.png)
 ![image](https://user-images.githubusercontent.com/27000065/110733428-f1481080-81f3-11eb-9c6a-e0d29831d97a.png)
 左树上的所有节点小于节点，右树上的node都大于节点。查找时间短一半lgn。
