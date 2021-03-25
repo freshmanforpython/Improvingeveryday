@@ -9,8 +9,97 @@
 左树上的所有节点小于节点，右树上的node都大于节点。查找时间短一半lgn。
 ![image](https://user-images.githubusercontent.com/27000065/110733657-526fe400-81f4-11eb-81a6-4d0caae975f8.png)
 
-160. Intersection of Two Linked Lists
-## Solution 1 Hash Table
+### 98. Validate Binary Search Tree
+#### Solution1 Inorder Traversal
+中序遍历：左中右
+```
+def inValidBST(self, root):
+
+    inorder = self = self.inorder(root)
+    return inorder == list(sorted(set(inorder)))
+
+def inorder(self, root):
+    if root is None:
+    return []
+    return self.inorder(root.left) + [root.val] + self.inorder(root.right)
+    # Time: O(N) Space: O(h)
+```
+
+```
+def inValidBST(self, root):
+    self.prev = None
+    return self.helper(root)
+def helper(self, root):
+    if root is None:
+        return True
+    if not self.helper(root.left):
+        return False
+    if self.prev and self.prev.val >= root.val:
+        return False
+    self.prev = root
+    return self.helper(root.right)
+    # Time: O(N) Space: O(h)
+```    
+### Solution2 Recruision
+```
+class Solution:
+    def isValidBST(self, root: TreeNode) -> bool:
+        
+        
+        def validate(node, low=-math.inf, high=math.inf):
+            
+            if not node:
+                return True
+            if nod.val <=low or node.val>=high:
+                return False
+            
+            return (validate(node.right, nod.val, high) and validate(node.left, low, nod.val))
+        
+        return validate(root)
+        
+        # Time: O(N) Space: O(1)
+```
+
+### 236. Lowest Common Ancestor of a Binary Search Tree 二叉树的最近公共祖先
+### Solution: Recursion
+![image](https://user-images.githubusercontent.com/27000065/112536078-66365100-8d83-11eb-9b08-cbf983285a5f.png)
+```
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if root is None or root == p or root == q:
+            return root
+        
+        left = self.lowestCommonAncestor(root.left, p, q)
+        right = self.lowestCommonAncestor(root.right, p, q)
+        
+        if left is None:
+            return right
+        elif right is None:
+            return left
+        else:
+            return root
+```        
+
+### 235. Lowest Common Ancestor of a Binary Search Tree 二叉搜索树的最近公共祖先
+### Solution：利用二叉搜索树的大小关系
+```
+class Solution:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        
+        if root.val > p.val and root.val > q.val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        if root.val < p.val and root.val < q.val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        return root
+```        
+
+
+
+
+
+
+### 160. Intersection of Two Linked Lists
+#### Solution 1 Hash Table
 ![image](https://user-images.githubusercontent.com/27000065/110005350-5d9fad00-7ce6-11eb-955f-bb08aabf5f7b.png)
 
 ```
@@ -31,7 +120,7 @@ class Solution:
 
         return None
   ````
-  ## Solution 2 Two Pointers
+  #### Solution 2 Two Pointers
   ![image](https://user-images.githubusercontent.com/27000065/110005431-7740f480-7ce6-11eb-9910-0a12d1dcbf75.png)
 ```
 class Solution:
