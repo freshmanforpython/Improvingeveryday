@@ -138,3 +138,49 @@ class Solution:
         # a common node down the list and both will reach their respective ends
         # at the same time. So pA will be NULL in that case.
   ```
+  
+## 二叉树遍历
+Pre-order, In-order, Post-order 前中后序遍历（实际很少用），一般用广度优先等
+![image](https://user-images.githubusercontent.com/27000065/112543110-b6191600-8d8b-11eb-9568-1d2e342ebe30.png)
+![image](https://user-images.githubusercontent.com/27000065/112544164-16f51e00-8d8d-11eb-8e8a-5fd6f57bd62e.png)
+
+## 递归（Recursion）分治（divide & Conquer）
+递归
+![image](https://user-images.githubusercontent.com/27000065/112545577-c1ba0c00-8d8e-11eb-994b-0d28c60c774c.png)
+![image](https://user-images.githubusercontent.com/27000065/112546059-54f34180-8d8f-11eb-857a-518bad6033ed.png)
+![image](https://user-images.githubusercontent.com/27000065/112546106-650b2100-8d8f-11eb-9649-5a0719d9e97a.png)
+可以分成子问题，并行，不适合重复计算的
+![image](https://user-images.githubusercontent.com/27000065/112546241-9388fc00-8d8f-11eb-91ee-ea806b41b276.png)
+
+### 50. Pow(x,n)
+### Intuition
+### Solution1 递归，分治
+```
+        if not n:
+            return 1
+        if n < 0:
+            return 1 / self.myPow(x, -n)
+        if n % 2:
+            return x * self.myPow(x, n-1)
+        return self.myPow(x*x, n/2)
+```
+### Solution2 非递归，借助位运算
+```
+        if n < 0:
+            x = 1 / x
+            n = -n
+            
+        pow = 1
+        while n:
+            if n & 1: # 按位与，判断是否为偶数
+                pow *= x
+            x *= x
+            n >>= 1 # 二进制左移一位
+        return pow
+```
+Points: 1. 边界条件
+2. 位运算
+
+
+
+
