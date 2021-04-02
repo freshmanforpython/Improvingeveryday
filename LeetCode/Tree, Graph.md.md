@@ -181,6 +181,54 @@ Pre-order, In-order, Post-order 前中后序遍历（实际很少用），一般
 Points: 1. 边界条件
 2. 位运算
 
+## 50. Majority Element
+### Intuition
+![image](https://user-images.githubusercontent.com/27000065/112767624-d9d79880-8fe5-11eb-953a-c5f9cdf512df.png)
+
+### Solution
+```
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        
+        # Map
+        # counts = collections.Counter(nums)
+        # return max(counts.key(), key = counts.get)
+        
+        # Divide and Conquer
+        
+        def majority_element_rec(lo, hi):
+            # base case; the only element in an array of size 1 is the majority 
+            # element
+            if lo == hi:
+                return nums[lo]
+            
+            # recurse on left and right halves of this slice
+            mid = (hi - lo) // 2 +lo
+            left = majority_element_rec(lo, mid)
+            right = majority_element_rec(mid+1, hi)
+            
+            # if the two halves agree on the majority element, return it.
+            if left == right:
+                return left
+            
+            # otherwise, count each element and return the "winner"
+            left_count = sum(1 for i in range(lo, hi+1) if nums[i] == left)
+            right_count = sum(1 for i in range(lo, hi+1) if nums[i] == right)
+            
+            return left if left_count > right_count else right
+        
+        return majority_element_rec(0, len(nums) -1)
+```
+
+
+
+
+## Greedy Solution贪心算法
+![image](https://user-images.githubusercontent.com/27000065/113379048-80090280-9346-11eb-9d6f-bd06724b5cfa.png)
+贪心只考虑眼前，dp考虑整体
+
+
+
 
 
 
