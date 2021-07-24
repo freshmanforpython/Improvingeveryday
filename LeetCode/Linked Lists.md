@@ -1,5 +1,13 @@
-
-
+# Data Structure
+1. 链表
+2. 单向链表
+3. 双向链表
+4. Java中Linkedlist使用双向链表
+5. Time Space
+6. 使用：
+1）单链表反转
+2）快慢指针：中间值问题；单链表是否有环；环的初始位置
+3）约瑟夫问题
 
 
 # Questions
