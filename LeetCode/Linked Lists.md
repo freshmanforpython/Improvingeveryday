@@ -296,3 +296,88 @@ class Solution:
 ![image](https://user-images.githubusercontent.com/27000065/127257072-0baaaee9-5d1d-4612-9b55-561748b54359.png)
 
 
+## [725. Split Linked List in Parts](https://leetcode.com/problems/split-linked-list-in-parts/)
+### Question
+Given the head of a singly linked list and an integer k, split the linked list into k consecutive linked list parts.
+
+The length of each part should be as equal as possible: no two parts should have a size differing by more than one. This may lead to some parts being null.
+
+The parts should be in the order of occurrence in the input list, and parts occurring earlier should always have a size greater than or equal to parts occurring later.
+
+Return an array of the k parts.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,3], k = 5
+Output: [[1],[2],[3],[],[]]
+Explanation:
+The first element output[0] has output[0].val = 1, output[0].next = null.
+The last element output[4] is null, but its string representation as a ListNode is [].
+Example 2:
+
+
+Input: head = [1,2,3,4,5,6,7,8,9,10], k = 3
+Output: [[1,2,3,4],[5,6,7],[8,9,10]]
+Explanation:
+The input has been split into consecutive parts with size difference at most 1, and earlier parts are a larger size than the later parts.
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [0, 1000].
+0 <= Node.val <= 1000
+1 <= k <= 50
+
+### Algorithm
+1. Splited input list
+2. create a new list
+
+# Solution
+1.
+```class Solution:
+    def splitListToParts(self, root: ListNode, k: int) -> List[ListNode]:
+        cur = root 
+        for N in range(1001):
+            if not cur: break
+            cur = cur.next
+        width, remainder = divmod(N, k)
+    
+        ans = [None] * k
+        prev, head = None, root
+        for i in range(k):
+            ans[i] = head
+             for j in range(width + (i < remainder)):
+                prev, head = head, head.next
+                
+            if prev: prev.next = None
+        return ans
+```
+2.
+```class Solution(object):
+    def splitListToParts(self, root, k):
+        cur = root
+        for N in xrange(1001):
+            if not cur: break
+            cur = cur.next
+        width, remainder = divmod(N, k)
+
+        ans = []
+        cur = root
+        for i in xrange(k):
+            head = write = ListNode(None)
+            for j in xrange(width + (i < remainder)):
+                write.next = write = ListNode(cur.val)
+                if cur: cur = cur.next
+            ans.append(head.next)
+        return ans
+```    
+write.next = write = ListNode(cur.val)
+等价于
+write.next = ListNode(cur.val)
+write = write.next
+1 = 2 = 3 -> 1 = 3 2 = 1
+           
+      
