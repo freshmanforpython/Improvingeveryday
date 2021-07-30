@@ -292,4 +292,7 @@ class Solution:
 
 ```
 
+## [148. Sort List](https://leetcode.com/problems/sort-list/)
+![image](https://user-images.githubusercontent.com/27000065/127257072-0baaaee9-5d1d-4612-9b55-561748b54359.png)
+
 
